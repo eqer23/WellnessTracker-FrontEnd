@@ -18,7 +18,7 @@ const ResetPassword = () => {
         if (password) {
             event.preventDefault();
             axios
-                .post("http://localhost:3001/reset-password/"+token, {
+                .post("https://wellnesstracker-27u0.onrender.com/"+ "reset-password/"+token, {
                     password,
                 })
                 .then((res) => {
