@@ -22,7 +22,7 @@ const TwoFactorForm = () => {
       event.preventDefault();
       axios
         .post(
-          "https://wellnesstracker-27u0.onrender.com/" + "verify-token/" + decodedToken.tfa,
+          "https://wellnesstracker-backend.onrender.com/" + "verify-token/" + decodedToken.tfa,
           {
             token: tfaCode,
           },

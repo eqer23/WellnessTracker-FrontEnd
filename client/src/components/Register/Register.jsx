@@ -20,7 +20,7 @@ const Register = () => {
     event.preventDefault();
     axios
       .post(
-        "https://wellnesstracker-27u0.onrender.com/" + "register",
+        "https://wellnesstracker-backend.onrender.com/" + "register",
         {
           firstname,
           lastname,
