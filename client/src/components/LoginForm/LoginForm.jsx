@@ -19,21 +19,25 @@ const LoginForm = () => {
     if (email && password) {
       event.preventDefault();
       axios
-        .post(LOGIN_URL + 'login', {
-          email,
-          password,
-          role,
-        })
+        .post(
+          LOGIN_URL + "login",
+          {
+            email,
+            password,
+            role,
+          },
+          {
+            withCredentials: true, // Include cookies in the request
+          }
+        )
         .then((res) => {
           if (res.data.login && res.data.tfa == null) {
             console.log(res);
             navigate("/dashboard");
-          }
-          else if (res.data.tfa) {
+          } else if (res.data.tfa) {
             navigate("/twofactor");
-          }
-          else {
-            console.log("Unknown error happened, check 2fa logic.")
+          } else {
+            console.log("Unknown error happened, check 2fa logic.");
           }
           console.log(res.data);
         })

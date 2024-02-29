@@ -21,9 +21,15 @@ const TwoFactorForm = () => {
     if (tfaCode) {
       event.preventDefault();
       axios
-        .post("http://localhost:3001/verify-token/" + decodedToken.tfa, {
-          token: tfaCode,
-        })
+        .post(
+          "http://localhost:3001/verify-token/" + decodedToken.tfa,
+          {
+            token: tfaCode,
+          },
+          {
+            withCredentials: true, // Include cookies in the request
+          }
+        )
         .then((res) => {
           if (res.data.login) {
             console.log("TFA passed");

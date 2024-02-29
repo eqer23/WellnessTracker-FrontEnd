@@ -19,13 +19,19 @@ const Register = () => {
   const handleSubmit = () => {
     event.preventDefault();
     axios
-      .post(URL + "register", {
-        firstname,
-        lastname,
-        email,
-        password,
-        role,
-      })
+      .post(
+        "https://wellnesstracker-27u0.onrender.com/" + "register",
+        {
+          firstname,
+          lastname,
+          email,
+          password,
+          role,
+        },
+        {
+          withCredentials: true, // Include cookies in the request
+        }
+      )
       .then((res) => {
         if (res.status == 200) {
           console.log(res); // check if error is thrown because emil already used - 400 error (make message)
